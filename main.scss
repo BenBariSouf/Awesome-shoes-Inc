@@ -1,340 +1,473 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&display=swap");
+
 *,
 *::before,
 *::after {
-	box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
-	margin: 0 auto;
-	font-family: "Noto Sans JP", sans-serif;
-	line-height: 1.6;
+    margin: 0 auto;
+    font-family: "Noto Sans JP", sans-serif;
+    line-height: 1.6;
 }
 
 img {
-	max-width: 100%;
-	display: block;
+    max-width: 100%;
+    display: block;
 }
 
 h1,
 h2,
 h3,
 p {
-	margin: 0;
+    margin: 0;
 }
 
 section {
-	padding: 7em 0;
+    padding: 7em 0;
 }
 
-.brand-logo {
-	width: 12%;
-	height: 75%;
-}
-
-// the navbar
+//  Navigation bar area
 .main-nav {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	height: 140px;
-	padding: 3.5em;
+    padding: 3.5em;
+    text-align: center;
 
-	@supports (background-blend-mode: multiply) {
-		//if the browser supports background-blend-mode, then do the following, else it'll default to background: #222;
-		background: url(./img/shoe-3.png), radial-gradient(rgb(197, 197, 197), #112);
-		//radial-gradient(): Colors emerge from a single point and smoothly spread outward in a circular or elliptical shape
-		background-blend-mode: multiply; //Defines the blending mode of each background layer.
-		background-attachment: fixed;
-		background-position: center center;
-		background-repeat: no-repeat;
-	}
+    @supports (background-blend-mode: multiply) {
+        //if the browser supports background-blend-mode, then do the following, else it'll default to background: #222;
+        background: url(./img/shoe-3.png),
+            radial-gradient(rgb(197, 197, 197), #112);
+        //radial-gradient(): Colors emerge from a single point and smoothly spread outward in a circular or elliptical shape
+        background-blend-mode: multiply; //Defines the blending mode of each background layer.
+        background-attachment: fixed;
+        background-position: center center;
+        background-repeat: no-repeat;
+    }
+}
 
-	ul {
-		display: flex;
-		margin: 0;
-		padding: 0;
-		list-style: none;
-	}
+//Small screens:
+.brand-logo {
+    width: 6.5em;
+    height: 55%;
+    margin: auto;
+    transform: rotate(0);
+    transition: transform 350ms ease-in-out;
 
-	a {
-		text-decoration: none;
-		padding: 1rem;
-		// font-size: 20px;
-		color: #fff;
+    &:hover {
+        transform: rotate(20deg);
+        transition: transform 350ms ease-in-out;
+    }
+}
 
-		&:hover {
-			color: #9c9c9c;
-		}
-	}
+nav {
+    position: absolute;
+    text-align: left;
+    left: 0;
+    transform: scale(1, 0);
+    transform-origin: top;
+    transition: transform 400ms ease-in-out;
 
-	li,
-	i {
-		padding: 10px;
-	}
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    li,
+    i {
+        display: flex;
+        margin: 10px;
+        font-weight: 700;
+    }
+
+    a {
+        text-decoration: none;
+        padding: 0.2rem;
+        color: #fff;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        opacity: 0;
+        transition: opacity 150ms ease-in-out;
+
+        &:hover {
+            color: #000;
+        }
+    }
+}
+
+.nav-toggle {
+    display: none;
+
+    &:checked ~ nav {
+        transform: scale(1, 1);
+
+        a {
+            opacity: 1;
+            transition: opacity 250ms ease-in-out 250ms;
+        }
+    }
+}
+
+.nav-toggle-label {
+    position: absolute;
+    top: 9.5%;
+    left: 0;
+    margin-left: 3%;
+
+    span,
+    span::before,
+    span::after {
+        display: block;
+        background: #fff;
+        height: 3px;
+        width: 2em;
+        border-radius: 2px;
+        position: relative;
+    }
+
+    span {
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+        }
+    }
+
+    span {
+        &::before {
+            bottom: 7px;
+        }
+        &::after {
+            top: 7px;
+        }
+    }
+}
+
+//Big screens
+@media screen and (min-width: 45em) {
+    .nav-toggle-label {
+        display: none;
+    }
+
+    .main-nav {
+        display: grid;
+        grid-template-columns: 5em auto minmax(600px, 1fr) 1fr;
+    }
+    .brand {
+        grid-column: 1 / 3;
+    }
+    .brand-logo {
+        width: 8em;
+        height: 3.5em;
+    }
+
+    nav {
+        all: unset;
+        grid-column: 3 / 6;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+
+        ul {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        li {
+            margin-left: 3em;
+        }
+
+        a {
+            opacity: 1;
+            position: relative;
+
+            &::before {
+                content: "";
+                display: block;
+                position: absolute;
+                height: 2px;
+                bottom: -0.5em;
+                background: #000;
+                left: 0;
+                right: 0;
+                transform: scale(0, 1);
+                transform-origin: left;
+                transition: transform 300ms ease-in-out;
+            }
+
+            &:hover {
+                &::before {
+                    transform: scale(1, 1);
+                }
+            }
+        }
+    }
+}
+
+//Header area
+.hero {
+    color: white;
+    --clr-accent: #faa600;
+    text-align: center;
+    padding: 16em 0;
+    background: #222;
+
+    @supports (background-blend-mode: multiply) {
+        //if the browser supports background-blend-mode, then do the following, else it'll default to background: #222;
+        background: url(./img/shoe-3.png),
+            radial-gradient(rgb(197, 197, 197), #112);
+        //radial-gradient(): Colors emerge from a single point and smoothly spread outward in a circular or elliptical shape
+        background-blend-mode: multiply; //Defines the blending mode of each background layer.
+        background-attachment: fixed;
+        background-position: center center;
+        background-repeat: no-repeat;
+    }
 }
 
 .spacing > * + * {
-	margin-top: var(--spacer, 2.5rem);
+    margin-top: var(--spacer, 2.5rem);
 }
 
 .gap {
-	margin-top: 2em;
+    margin-top: 2em;
 }
 .container {
-	width: 85%;
-	max-width: 65em;
-	margin: 0 auto; // 0 top and btm, and center it(auto left and right)
+    width: 85%;
+    max-width: 65em;
+    margin: 0 auto; // 0 top and btm, and center it(auto left and right)
 }
 
 .btn {
-	// display: inline-block is used to stop the anchor tag with class .btn from overlapping the text above, because anchor tags are inline by default
-	display: inline-block;
-	text-decoration: none;
-	color: var(--clr-text, white);
-	font-weight: 700;
-	text-transform: uppercase;
-	font-size: 1.1em;
-	padding: 0.75em 1.25em;
-	border-radius: 0.55em;
-	margin-left: 1rem;
-	background: var(--clr-accent, rgb(0, 34, 128));
-	transition: transform 250ms ease-in-out, opacity 250ms linear;
-}
+    // display: inline-block is used to stop the anchor tag with class .btn from overlapping the text above, because anchor tags are inline by default
+    display: inline-block;
+    text-decoration: none;
+    color: var(--clr-text, white);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 1.1em;
+    padding: 0.75em 1.25em;
+    border-radius: 0.55em;
+    margin-left: 1.2rem;
+    min-width: 175px;
+    text-align: center;
+    background: var(--clr-accent, rgb(0, 34, 128));
+    transition: transform 250ms ease-in-out, opacity 250ms linear;
 
-.btn:hover,
-.btn:focus {
-	transform: scale(1.2);
-	opacity: 0.8;
-}
-
-.compare {
-	background: var(--clr-compare, #000);
-}
-.cart {
-	background: var(--clr-cart, #000);
+    &:hover,
+    &:focus {
+        transform: scale(1.2);
+        opacity: 0.8;
+    }
 }
 
 .primary-title {
-	font-size: clamp(3rem, calc(5vw+1rem), 7rem);
-	// clamp() allows us to change the size of the element dynamically: in this example our primary-title
-	//will start from a font-size pf 3rem, it's gonna keep growing as the screen size grows following the
-	//calculation calc(5vw+1rem) (vw=viewport width), and will max out at 7rem
-	line-height: 1.1;
-	text-transform: uppercase;
+    font-size: clamp(3rem, calc(5vw+1rem), 7rem);
+    // clamp() allows us to change the size of the element dynamically: in this example our primary-title
+    //will start from a font-size pf 3rem, it's gonna keep growing as the screen size grows following the
+    //calculation calc(5vw+1rem) (vw=viewport width), and will max out at 7rem
+    line-height: 1.1;
+    margin-top: 5%;
+    text-transform: uppercase;
 }
 
 .primary-paragraph {
-	font-size: clamp(0.5rem, calc(5vw+1rem), 2rem);
-	font-weight: bold;
+    font-size: clamp(0.5rem, calc(5vw+1rem), 2rem);
+    font-weight: bold;
 }
 
-.hero {
-	color: white;
-	--clr-accent: #faa600;
-	text-align: center;
-	padding: 15em 0;
-	background: #222;
-
-	@supports (background-blend-mode: multiply) {
-		//if the browser supports background-blend-mode, then do the following, else it'll default to background: #222;
-		background: url(./img/shoe-3.png), radial-gradient(rgb(197, 197, 197), #112);
-		//radial-gradient(): Colors emerge from a single point and smoothly spread outward in a circular or elliptical shape
-		background-blend-mode: multiply; //Defines the blending mode of each background layer.
-		background-attachment: fixed;
-		background-position: center center;
-		background-repeat: no-repeat;
-	}
+.compare {
+    background: var(--clr-compare, #000);
+}
+.cart {
+    background: var(--clr-cart, #000);
 }
 
+//Brands area
 .featured-brands {
-	display: flex;
-	justify-content: space-between;
-	width: 100%;
-	padding: 1em 0 5em 0;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 1em 0 5em 0;
 }
 
 .brand-img {
-	height: 12%;
-	width: 12%;
-	// border: 1px red solid;
+    height: 12%;
+    width: 12%;
+    // border: 1px red solid;
 
-	padding: 2em;
-	margin: 0 auto;
-	filter: grayscale(100%);
-	transform: scale(1);
-	transition: transform 350ms ease-in-out;
+    padding: 2em;
+    margin: 0 auto;
+    filter: grayscale(100%);
+    transform: scale(1);
+    transition: transform 350ms ease-in-out;
 
-	@media (max-width: 45em) {
-		flex-basis: 30%;
-		filter: grayscale(0);
-		display: flex;
-		gap: 3em;
-		padding: 1.1em;
-	}
+    @media (max-width: 45em) {
+        flex-basis: 30%;
+        filter: grayscale(0);
+        display: flex;
+        gap: 3em;
+        padding: 1.1em;
+    }
+
+    &:hover,
+    &:focus {
+        filter: grayscale(0);
+        transform: scale(1.2);
+        transition: transform 350ms ease-in-out;
+    }
 }
 
-.brand-img {
-	&:hover,
-	&:focus {
-		filter: grayscale(0);
-		transform: scale(1.2);
-		transition: transform 350ms ease-in-out;
-	}
-}
-// section1
-
+// Main area
+// Section1
 .section-title {
-	text-align: center;
-	font-size: clamp(2.5rem, calc(5vw+1rem), 4.5rem);
-	line-height: 1;
-	color: rgb(10, 10, 109);
-	margin-bottom: 5rem;
+    text-align: center;
+    font-size: clamp(2.5rem, calc(5vw+1rem), 4.5rem);
+    line-height: 1;
+    color: rgb(10, 10, 109);
+    margin-bottom: 5rem;
 }
 
 .row {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 3em;
-	justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3em;
+    justify-content: center;
 
-	& > * {
-		flex-basis: 30%;
-		min-width: 10em;
-	}
+    & > * {
+        flex-basis: 30%;
+        min-width: 10em;
+    }
 }
 
 .featured {
-	background: #c7c7c7;
-}
+    background: #c7c7c7;
 
-.featured {
-	&_items {
-		display: block;
-		position: relative;
-		transform: scale(0.85);
-		transition: transform 350ms ease-in-out;
-		text-decoration: none;
-		color: #333;
-		text-align: center;
-		line-height: 1.2;
+    &_items {
+        display: block;
+        position: relative;
+        transform: scale(0.85);
+        transition: transform 350ms ease-in-out;
+        text-decoration: none;
+        color: #333;
+        text-align: center;
+        line-height: 1.2;
 
-		&:hover,
-		&:focus {
-			transform: scale(1);
+        &:hover,
+        &:focus {
+            transform: scale(1);
 
-			.featured_details {
-				opacity: 1;
-				transition: opacity 350ms linear;
-			}
-		}
+            .featured_details {
+                opacity: 1;
+                transition: opacity 350ms linear;
+            }
+        }
 
-		&::after {
-			content: "";
-			position: absolute;
-			top: 10%;
-			left: 10%;
-			background: #1ba4c7;
-			padding: 75% 75% 0 0;
-			border-radius: 50%;
-			z-index: -1;
-		}
-	}
+        &::after {
+            content: "";
+            position: absolute;
+            top: 10%;
+            left: 10%;
+            background: #1ba4c7;
+            padding: 75% 75% 0 0;
+            border-radius: 50%;
+            z-index: -1;
+        }
+    }
 
-	&_details {
-		opacity: 0;
-		margin-top: 1.5em;
+    &_details {
+        opacity: 0;
+        margin-top: 1.5em;
 
-		span {
-			display: block;
-			font-weight: 700;
-			font-size: 2rem;
-		}
-	}
+        span {
+            display: block;
+            font-weight: 700;
+            font-size: 2rem;
+        }
+    }
 }
 
 .shoe_margin {
-	margin-top: 3.5em;
+    margin-top: 3.5em;
 }
 
 // section 2
-
 .product {
-	background: radial-gradient(var(--clr-inner, lime), var(--clr-outer, red));
-	padding: 3em;
-	border-radius: 3em;
-	margin-bottom: 5em;
-	text-align: center;
+    background: radial-gradient(var(--clr-inner, lime), var(--clr-outer, red));
+    padding: 3em;
+    border-radius: 3em;
+    margin-bottom: 5em;
+    text-align: center;
 
-	&-title {
-		line-height: 1;
-		text-transform: uppercase;
-		color: #fff;
-		font-size: clamp(3.5rem, calc(5vw+1rem), 5rem);
-		text-shadow: 0 0 0.2em rgba($color: #000, $alpha: 0.5);
-	}
+    &-title {
+        line-height: 1;
+        text-transform: uppercase;
+        color: #fff;
+        font-size: clamp(3.5rem, calc(5vw+1rem), 5rem);
+        text-shadow: 0 0 0.2em rgba($color: #000, $alpha: 0.5);
+    }
 
-	&_img {
-		margin: -5em 0 0 0;
-		shape-margin: 2em;
-	}
+    &_img {
+        margin: -5em 0 0 0;
+        shape-margin: 2em;
+    }
 
-	@media (min-width: 45em) {
-		text-align: left;
-		margin-bottom: 10em;
-		&_img {
-			float: right;
-			width: 66%;
-			shape-outside: url(../img/shoe-1.png);
-			margin: 0 -5em 0 0;
-		}
+    @media (min-width: 45em) {
+        text-align: left;
+        margin-bottom: 10em;
+        &_img {
+            float: right;
+            width: 66%;
+            shape-outside: url(../img/shoe-1.png);
+            margin: 0 -5em 0 0;
+        }
 
-		&.shoe2 {
-			.product_img {
-				float: right;
-				shape-outside: url(./img/shoe-2.png);
-			}
-		}
-		&.shoe4 {
-			.product_img {
-				float: right;
-				shape-outside: url(./img/shoe-7.png);
-			}
-		}
-		&.shoe5 {
-			.product_img {
-				float: right;
-			}
-		}
-	}
+        &.shoe2 {
+            .product_img {
+                float: right;
+                shape-outside: url(./img/shoe-2.png);
+            }
+        }
+        &.shoe4 {
+            .product_img {
+                float: right;
+                shape-outside: url(./img/shoe-7.png);
+            }
+        }
+        &.shoe5 {
+            .product_img {
+                float: right;
+            }
+        }
+    }
 }
 
 .shoe1 {
-	--clr-inner: #faa600;
-	--clr-outer: #e48d09;
-	--clr-compare: #77c0ff;
-	--clr-cart: #a1173f;
+    --clr-inner: #faa600;
+    --clr-outer: #e48d09;
+    --clr-compare: #77c0ff;
+    --clr-cart: #a1173f;
 }
 .shoe2 {
-	--clr-inner: #fce4b3;
-	--clr-outer: #eac886;
-	--clr-cart: #1e4e79;
-	--clr-compare: #be2d2d;
+    --clr-inner: #fce4b3;
+    --clr-outer: #eac886;
+    --clr-cart: #1e4e79;
+    --clr-compare: #be2d2d;
 }
 .shoe3 {
-	--clr-inner: #6dd5ed;
-	--clr-outer: #2193b0;
-	--clr-cart: #008951;
-	--clr-compare: #ffa977;
+    --clr-inner: #6dd5ed;
+    --clr-outer: #2193b0;
+    --clr-cart: #008951;
+    --clr-compare: #ffa977;
 }
 .shoe4 {
-	--clr-inner: #5d96ff;
-	--clr-outer: #8ee5ff;
-	--clr-compare: #2b2669;
-	--clr-cart: #0d703e;
+    --clr-inner: #5d96ff;
+    --clr-outer: #8ee5ff;
+    --clr-compare: #2b2669;
+    --clr-cart: #0d703e;
 }
 .shoe5 {
-	--clr-inner: #be4d4d;
-	--clr-outer: #d47f7f;
-	--clr-compare: #353535;
-	--clr-cart: #a1173f;
+    --clr-inner: #be4d4d;
+    --clr-outer: #d47f7f;
+    --clr-compare: #353535;
+    --clr-cart: #a1173f;
 }

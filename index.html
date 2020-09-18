@@ -1,151 +1,213 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Awesome shoes Inc</title>
-		<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet" />
-		<link rel="stylesheet" href="/main.css" />
-	</head>
-	<body>
-		<!-- navigation bar -->
-		<div class="main-nav">
-			<a href="">
-				<img src="./img/main-logo.png" alt="" class="brand-logo" />
-			</a>
-			<nav>
-				<ul>
-					<li>
-						<a href="#"><i class="fas fa-home"></i> Home</a>
-					</li>
-					<li>
-						<a href="#"><i class="fas fa-shoe-prints"></i> Discover</a>
-					</li>
-					<li>
-						<a href="#"><i class="far fa-address-card"></i> About-us</a>
-					</li>
-					<li>
-						<a href="#"><i class="fas fa-shopping-cart"></i> Cart</a>
-					</li>
-				</ul>
-			</nav>
-		</div>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Awesome shoes Inc</title>
+        <link rel="stylesheet" href="/main.css" />
+    </head>
+    <body>
+        <!-- Navigation bar area-->
+        <div class="main-nav">
+            <a href="#" class="brand">
+                <img src="./img/main-logo.png" alt="" class="brand-logo" />
+            </a>
+            <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+            <nav>
+                <ul>
+                    <li>
+                        <a href="#"><i class="fas fa-home"></i> Home</a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            ><i class="fas fa-shoe-prints"></i> Discover</a
+                        >
+                    </li>
+                    <li>
+                        <a href="#"
+                            ><i class="far fa-address-card"></i> About-us</a
+                        >
+                    </li>
+                    <li>
+                        <a href="#"
+                            ><i class="fas fa-shopping-cart"></i> Cart</a
+                        >
+                    </li>
+                </ul>
+            </nav>
+            <label for="nav-toggle" class="nav-toggle-label">
+                <span></span>
+            </label>
+        </div>
 
-		<!-- header area -->
-		<header class="hero">
-			<div class="container spacing">
-				<h1 class="primary-title">Awesome shoes inc.</h1>
-				<p class="primary-paragraph">Shoes that fit soul and body</p>
-				<a href="#" class="btn">Shop now </a>
-			</div>
-		</header>
+        <!-- Header area -->
+        <header class="hero">
+            <div class="container spacing">
+                <h1 class="primary-title">Awesome shoes inc.</h1>
+                <p class="primary-paragraph">Shoes that fit soul and body</p>
+                <a href="#" class="btn">Shop now </a>
+            </div>
+        </header>
 
-		<!-- Brands -->
-		<h2 class="section-title gap">Featured Brands</h2>
-		<section class="featured-brands">
-			<img src="./img/addidas.png" alt="" class="brand-img" />
-			<img src="./img/nike.png" alt="" class="brand-img" />
-			<img src="./img/puma.png" alt="" class="brand-img" />
-			<img src="./img/converse.png" alt="" class="brand-img" />
-			<img src="./img/reebok.png" alt="" class="brand-img" />
-		</section>
+        <!-- Brands area -->
+        <h2 class="section-title gap">Featured Brands</h2>
+        <section class="featured-brands">
+            <img src="./img/addidas.png" alt="addias" class="brand-img" />
+            <img src="./img/nike.png" alt="nike" class="brand-img" />
+            <img src="./img/puma.png" alt="puma" class="brand-img" />
+            <img src="./img/converse.png" alt="converse" class="brand-img" />
+            <img src="./img/reebok.png" alt="reebok" class="brand-img" />
+        </section>
 
-		<!-- main area -->
-		<!-- section1 -->
-		<section class="featured">
-			<div class="container">
-				<h2 class="section-title">Featured Items</h2>
-				<div class="row">
-					<a href="" class="featured_items">
-						<img src="/img/shoe-4.png" alt="" class="featured_item_img feat1" />
-						<p class="featured_details"><span class="price">$129.99</span>Shoe name</p>
-					</a>
-					<a href="" class="featured_items">
-						<img src="/img/shoe-5.png" alt="" class="featured_item_img" />
-						<p class="featured_details"><span class="price">$99.99</span>Shoe name</p>
-					</a>
-					<a href="" class="featured_items">
-						<img src="/img/shoe-6.png" alt="" class="featured_item_img" />
-						<p class="featured_details"><span class="price">$154.99</span>Shoe name</p>
-					</a>
+        <!-- Main area -->
+        <!-- section1 -->
+        <section class="featured">
+            <div class="container">
+                <h2 class="section-title">Featured Items</h2>
+                <div class="row">
+                    <a href="" class="featured_items">
+                        <img
+                            src="/img/shoe-4.png"
+                            alt=""
+                            class="featured_item_img feat1"
+                        />
+                        <p class="featured_details">
+                            <span class="price">$129.99</span>Shoe name
+                        </p>
+                    </a>
+                    <a href="" class="featured_items">
+                        <img
+                            src="/img/shoe-5.png"
+                            alt=""
+                            class="featured_item_img"
+                        />
+                        <p class="featured_details">
+                            <span class="price">$99.99</span>Shoe name
+                        </p>
+                    </a>
+                    <a href="" class="featured_items">
+                        <img
+                            src="/img/shoe-6.png"
+                            alt=""
+                            class="featured_item_img"
+                        />
+                        <p class="featured_details">
+                            <span class="price">$154.99</span>Shoe name
+                        </p>
+                    </a>
 
-					<a href="" class="featured_items">
-						<img src="/img/shoe-8.png" alt="" class="featured_item_img" />
-						<p class="featured_details shoe_margin"><span class="price">$129.99</span>Shoe name</p>
-					</a>
-					<a href="" class="featured_items">
-						<img src="/img/shoe-10.png" alt="" class="featured_item_img" />
-						<p class="featured_details shoe_margin"><span class="price">$99.99</span>Shoe name</p>
-					</a>
-					<a href="" class="featured_items">
-						<img src="/img/shoe-9.png" alt="" class="featured_item_img" />
-						<p class="featured_details shoe_margin"><span class="price">$154.99</span>Shoe name</p>
-					</a>
-				</div>
-			</div>
-		</section>
+                    <a href="" class="featured_items">
+                        <img
+                            src="/img/shoe-8.png"
+                            alt=""
+                            class="featured_item_img"
+                        />
+                        <p class="featured_details shoe_margin">
+                            <span class="price">$129.99</span>Shoe name
+                        </p>
+                    </a>
+                    <a href="" class="featured_items">
+                        <img
+                            src="/img/shoe-10.png"
+                            alt=""
+                            class="featured_item_img"
+                        />
+                        <p class="featured_details shoe_margin">
+                            <span class="price">$99.99</span>Shoe name
+                        </p>
+                    </a>
+                    <a href="" class="featured_items">
+                        <img
+                            src="/img/shoe-9.png"
+                            alt=""
+                            class="featured_item_img"
+                        />
+                        <p class="featured_details shoe_margin">
+                            <span class="price">$154.99</span>Shoe name
+                        </p>
+                    </a>
+                </div>
+            </div>
+        </section>
 
-		<!-- section2 -->
-		<section class="our-products">
-			<div class="container">
-				<h2 class="section-title">Our Products</h2>
+        <!-- section2 -->
+        <section class="our-products">
+            <div class="container">
+                <h2 class="section-title">Our Products</h2>
 
-				<article class="product shoe1 spacing">
-					<img src="/img/shoe-1.png" alt="" class="product_img" />
-					<h3 class="product-title">alpha savage</h3>
-					<p class="product-description">
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi, quia odio. Quas, facilis, aut illo
-						commodi eveniet et facere quae blanditiis dolorem voluptatibus repellat placeat cum at rem.
-					</p>
-					<a href="" class="btn cart">Add to cart</a>
-					<a href="#" class="btn compare">Compare</a>
-				</article>
+                <article class="product shoe1 spacing">
+                    <img src="/img/shoe-1.png" alt="" class="product_img" />
+                    <h3 class="product-title">alpha savage</h3>
+                    <p class="product-description">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit. Eligendi, quia odio. Quas, facilis, aut illo
+                        commodi eveniet et facere quae blanditiis dolorem
+                        voluptatibus repellat placeat cum at rem.
+                    </p>
+                    <a href="" class="btn cart">Add to cart</a>
+                    <a href="#" class="btn compare">Compare</a>
+                </article>
 
-				<article class="product shoe2 spacing">
-					<img src="/img/shoe-2.png" alt="" class="product_img" />
-					<h3 class="product-title">Retro og</h3>
-					<p class="product-description">
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi, quia odio. Quas, facilis, aut illo
-						commodi eveniet et facere quae blanditiis dolorem voluptatibus repellat placeat cum at rem.
-					</p>
-					<a href="#" class="btn cart">Add to cart</a>
-					<a href="#" class="btn compare">Compare</a>
-				</article>
+                <article class="product shoe2 spacing">
+                    <img src="/img/shoe-2.png" alt="" class="product_img" />
+                    <h3 class="product-title">Retro og</h3>
+                    <p class="product-description">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit. Eligendi, quia odio. Quas, facilis, aut illo
+                        commodi eveniet et facere quae blanditiis dolorem
+                        voluptatibus repellat placeat cum at rem.
+                    </p>
+                    <a href="#" class="btn cart">Add to cart</a>
+                    <a href="#" class="btn compare">Compare</a>
+                </article>
 
-				<article class="product shoe3 spacing">
-					<img src="/img/shoe-3.png" alt="" class="product_img" />
-					<h3 class="product-title">air zoom</h3>
-					<p class="product-description">
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi, quia odio. Quas, facilis, aut illo
-						commodi eveniet et facere quae blanditiis dolorem voluptatibus repellat placeat cum at rem.
-					</p>
-					<a href="" class="btn cart">Add to cart</a>
-					<a href="#" class="btn compare">Compare</a>
-				</article>
-				<article class="product shoe4 spacing">
-					<img src="/img/shoe-7.png" alt="" class="product_img" />
-					<h3 class="product-title">all star</h3>
-					<p class="product-description">
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi, quia odio. Quas, facilis, aut illo
-						commodi eveniet et facere quae blanditiis dolorem voluptatibus repellat placeat cum at rem.
-					</p>
-					<a href="" class="btn cart">Add to cart</a>
-					<a href="#" class="btn compare">Compare</a>
-				</article>
-				<article class="product shoe5 spacing">
-					<img src="/img/shoe-11.png" alt="" class="product_img last" />
-					<h3 class="product-title">High og satin</h3>
-					<p class="product-description">
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi, quia odio. Quas, facilis, aut illo
-						commodi eveniet et facere quae blanditiis dolorem voluptatibus repellat placeat cum at rem.
-					</p>
-					<a href="" class="btn cart">Add to cart</a>
-					<a href="#" class="btn compare">Compare</a>
-				</article>
-			</div>
-		</section>
-	</body>
+                <article class="product shoe3 spacing">
+                    <img src="/img/shoe-3.png" alt="" class="product_img" />
+                    <h3 class="product-title">air zoom</h3>
+                    <p class="product-description">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit. Eligendi, quia odio. Quas, facilis, aut illo
+                        commodi eveniet et facere quae blanditiis dolorem
+                        voluptatibus repellat placeat cum at rem.
+                    </p>
+                    <a href="" class="btn cart">Add to cart</a>
+                    <a href="#" class="btn compare">Compare</a>
+                </article>
+                <article class="product shoe4 spacing">
+                    <img src="/img/shoe-7.png" alt="" class="product_img" />
+                    <h3 class="product-title">all star</h3>
+                    <p class="product-description">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit. Eligendi, quia odio. Quas, facilis, aut illo
+                        commodi eveniet et facere quae blanditiis dolorem
+                        voluptatibus repellat placeat cum at rem.
+                    </p>
+                    <a href="" class="btn cart">Add to cart</a>
+                    <a href="#" class="btn compare">Compare</a>
+                </article>
+                <article class="product shoe5 spacing">
+                    <img
+                        src="/img/shoe-11.png"
+                        alt=""
+                        class="product_img last"
+                    />
+                    <h3 class="product-title">High og satin</h3>
+                    <p class="product-description">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit. Eligendi, quia odio. Quas, facilis, aut illo
+                        commodi eveniet et facere quae blanditiis dolorem
+                        voluptatibus repellat placeat cum at rem.
+                    </p>
+                    <a href="" class="btn cart">Add to cart</a>
+                    <a href="#" class="btn compare">Compare</a>
+                </article>
+            </div>
+        </section>
+    </body>
 
-	<!-- font awesome js -->
-	<script src="https://kit.fontawesome.com/c6e109bbb6.js" crossorigin="anonymous"></script>
+    <!-- font awesome js -->
+    <script
+        src="https://kit.fontawesome.com/c6e109bbb6.js"
+        crossorigin="anonymous"
+    ></script>
 </html>
